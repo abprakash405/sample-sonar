@@ -49,6 +49,8 @@ to see logs:
 docker logs containerid
 
 ------------------------------------------------------------
+# Access the URL with your hostname or ip address and it will automatically redirects to HTTPS URL only. 
+If you see any 500 bad gateway means, sonarqube server is not ready yet and wait for 30seconds to sonarqube to start 
 
 
 
