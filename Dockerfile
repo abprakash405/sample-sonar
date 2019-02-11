@@ -12,6 +12,7 @@ RUN mkdir /etc/nginx/ssl
 COPY nginx/nginx.crt /etc/nginx/ssl/nginx.crt
 COPY nginx/nginx.key /etc/nginx/ssl/nginx.key
 COPY nginx/default /etc/nginx/sites-available/default
+RUN service nginx restart
 
 RUN useradd -d /home/ubuntu -ms /bin/bash -g root -G sudo -p ubuntu ubuntu
 
