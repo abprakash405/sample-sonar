@@ -10,6 +10,7 @@ FROM ubuntu:latest
 # Install Nginx.
 RUN apt-get update
 RUN apt-get install nginx -y
+RUN apt-get install vim -y
 
 # Define working directory.
 WORKDIR /etc/nginx
