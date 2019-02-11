@@ -12,6 +12,12 @@ RUN apt-get update
 RUN apt-get install nginx -y
 RUN apt-get install vim -y
 
+RUN sudo mkdir /etc/nginx/ssl
+COPY nginx/nginx.crt /etc/nginx/ssl/nginx.crt
+COPY nginx/nginx.key /etc/nginx/ssl/nginx.key
+COPY nginx/default /etc/nginx/sites-available/default
+
+
 # Define working directory.
 WORKDIR /etc/nginx
 
