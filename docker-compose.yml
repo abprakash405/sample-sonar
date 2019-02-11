@@ -23,7 +23,7 @@ services:
        MYSQL_DATABASE: sonar
        MYSQL_USER: sonar
        MYSQL_PASSWORD: sonar
-    nginx:
+   nginx:
        build:
          context: ./nginx
          dockerfile: Dockerfile
@@ -31,8 +31,6 @@ services:
          - "80:80"
        networks:
          - sonarnet
-       tty: true
-       command: top
 volumes:
   db_data: {}
 

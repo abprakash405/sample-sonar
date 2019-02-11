@@ -21,6 +21,9 @@ WORKDIR /etc/nginx
 EXPOSE 80
 EXPOSE 443
 CMD ["nginx", "-g", "daemon off;"]
-
+#CMD ["nginx"]
 
 #docker build -t ff -f Dockerfile-1 . 
+
+#ENTRYPOINT [ "./entrypoint.sh" ]
+
