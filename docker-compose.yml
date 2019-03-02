@@ -11,6 +11,8 @@ services:
          - sonarnet
        tty: true
        command: top
+       volumes:
+         - static:/tmp
    db:
      image: mysql:5.7
      networks:
@@ -23,8 +25,14 @@ services:
        MYSQL_DATABASE: sonar
        MYSQL_USER: sonar
        MYSQL_PASSWORD: sonar
+     
 volumes:
-  db_data: {}
+  static:
+    driver: local
+    driver_opts:
+      type: none
+      device: /mnt/sda1/var/sonar-bonar
+      o: bind
 
 networks:
   sonarnet:

@@ -21,3 +21,4 @@ USER ubuntu
 
 WORKDIR /home/ubuntu/
 ENTRYPOINT [ "./entrypoint.sh" ]
+
