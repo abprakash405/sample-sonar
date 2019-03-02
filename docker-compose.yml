@@ -12,7 +12,10 @@ services:
        tty: true
        command: top
        volumes:
-         - static:/tmp
+         - sonarqube_conf:/home/ubuntu/sonarqube-7.5/conf
+         - sonarqube_data:/home/ubuntu/sonarqube-7.5/data
+         - sonarqube_extensions:/home/ubuntu/sonarqube-7.5/extensions
+         - sonarqube_bundled-plugins:/home/ubuntu/sonarqube-7.5/bundled-plugins
    db:
      image: mysql:5.7
      networks:
@@ -27,13 +30,31 @@ services:
        MYSQL_PASSWORD: sonar
      
 volumes:
-  static:
+  sonarqube_conf:
     driver: local
     driver_opts:
       type: none
-      device: /mnt/sda1/var/sonar-bonar
+      device: /mnt/sda1/var/sonar/conf
       o: bind
-
+  sonarqube_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /mnt/sda1/var/sonar/data
+      o: bind
+  sonarqube_extensions:
+    driver: local
+    driver_opts:
+      type: none
+      device: /mnt/sda1/var/sonar/extensions
+      o: bind
+  sonarqube_bundled-plugins:
+    driver: local
+    driver_opts:
+      type: none
+      device: /mnt/sda1/var/sonar/bundled-plugins
+      o: bind
+ 
 networks:
   sonarnet:
     driver: bridge
